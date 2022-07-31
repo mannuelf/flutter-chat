@@ -1,5 +1,5 @@
+import 'package:chatapp/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flash_chat/constants.dart';
 
 class ChatScreen extends StatefulWidget {
   @override
