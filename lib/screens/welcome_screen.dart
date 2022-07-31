@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:chatapp/screens/login_screen.dart';
 import 'package:chatapp/screens/registration_screen.dart';
 import 'package:flutter/material.dart';
@@ -14,26 +16,37 @@ class WelcomeScreen extends StatefulWidget {
 class _WelcomeScreenState extends State<WelcomeScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
+  late Animation animation;
 
   @override
   void initState() {
     super.initState();
 
+    // 1. create controller
     controller = AnimationController(
       duration: const Duration(seconds: 1),
       vsync: this,
     );
 
+    // 5. set up different kind of animations curves
+    animation = CurvedAnimation(parent: controller, curve: Curves.decelerate);
+
+    // 2. use various move methods
     controller.forward();
+
+    // 3. add en event listener and call setState
     controller.addListener(() {
-      print(controller.value);
+      setState(() {
+        // rebuild widget for animation, use empty setState
+      });
+      print(animation.value);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.blue.shade900.withOpacity(controller.value),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -45,13 +58,15 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 Hero(
                   tag: 'logo',
                   child: Container(
-                    height: 60.0,
+                    height:
+                        animation.value * 60, // 4. use controller/animation val
                     child: Image.asset('images/logo.png'),
                   ),
                 ),
-                const Text(
+                Text(
                   'Flash Chat',
                   style: TextStyle(
+                    color: Colors.amber,
                     fontSize: 45.0,
                     fontWeight: FontWeight.w900,
                   ),
