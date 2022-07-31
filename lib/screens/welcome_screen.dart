@@ -24,29 +24,46 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 
     // 1. create controller
     controller = AnimationController(
-      duration: const Duration(seconds: 1),
+      duration: const Duration(seconds: 3),
       vsync: this,
     );
 
     // 5. set up different kind of animations curves
-    animation = CurvedAnimation(parent: controller, curve: Curves.decelerate);
-
+    // animation = CurvedAnimation(parent: controller, curve: Curves.decelerate);
+    animation = ColorTween(begin: Color(0xFFFFFFFF), end: Color(0xFF993388))
+        .animate(controller);
     // 2. use various move methods
     controller.forward();
+    // looping animation
+    // animation.addStatusListener((status) {
+    //   print(status);
+    //   if (status == AnimationStatus.completed) {
+    //     controller.reverse(from: 1.0);
+    //   } else if (status == AnimationStatus.dismissed) {
+    //     // .dismissed = end
+    //     controller.forward();
+    //   }
+    // });
+    // controller.reverse(from: 1.0 * 60);
 
     // 3. add en event listener and call setState
     controller.addListener(() {
       setState(() {
         // rebuild widget for animation, use empty setState
       });
-      print(animation.value);
+      // print(animation.value);
     });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue.shade900.withOpacity(controller.value),
+      backgroundColor: animation.value,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -58,8 +75,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 Hero(
                   tag: 'logo',
                   child: Container(
-                    height:
-                        animation.value * 60, // 4. use controller/animation val
+                    height: 60, // 4. use controller/animation val
                     child: Image.asset('images/logo.png'),
                   ),
                 ),
