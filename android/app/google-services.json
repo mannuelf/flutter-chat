@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1021165182211",
+    "project_id": "flash-chat-dd770",
+    "storage_bucket": "flash-chat-dd770.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1021165182211:android:172f90497bdec94fb75d36",
+        "android_client_info": {
+          "package_name": "com.mannuelferreira.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1021165182211-vbvppsa4n5g5bs9ka3ange2nevdqeboq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLLKYpw1__ABqGCZPNsRKgLiykGGp3taU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1021165182211-vbvppsa4n5g5bs9ka3ange2nevdqeboq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
