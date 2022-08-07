@@ -8,7 +8,7 @@
 PRODUCT_NAME = chatapp
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.chatapp
+PRODUCT_BUNDLE_IDENTIFIER = com.mannuelferreira.chatapp
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2022 com.example. All rights reserved.
