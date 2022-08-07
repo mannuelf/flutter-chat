@@ -1,4 +1,5 @@
 import 'package:chatapp/constants.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -10,6 +11,7 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
+  final _auth = FirebaseAuth.instance;
   String email = '';
   String password = '';
 
@@ -45,7 +47,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 8.0,
             ),
             TextField(
-                keyboardType: TextInputType.visiblePassword,
                 obscureText: true,
                 textAlign: TextAlign.center,
                 onChanged: (value) {
